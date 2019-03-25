@@ -74,10 +74,9 @@ def add_arguments(p):
                    help='the API token of the blockchain broadcaster you are using. Currently Etherscan only supported.')
 
 
-def get_config():
+def get_config(name=None):
     configure_logger()
-    p = configargparse.getArgumentParser(default_config_files=[os.path.join(PATH, 'conf.ini'),
-                                                               '/etc/cert-issuer/conf.ini'])
+    p = configargparse.getArgumentParser(name)
     add_arguments(p)
     parsed_config, _ = p.parse_known_args()
 
